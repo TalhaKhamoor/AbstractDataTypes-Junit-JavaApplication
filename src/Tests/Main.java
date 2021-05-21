@@ -10,7 +10,7 @@ public class Main {
 		table.put(8, "B");//3
 		table.put(11, "C");//1 collision
 		table.put(8, "B+");//3
-
+		table.remove(60);
 		System.out.println("Done");
 
 
