@@ -1,17 +1,23 @@
 package utilities;
 
-import java.util.Arrays;
-
 public class Main {
 	public static void main(String[] args) {
-		MyQueue<Integer> queue = new MyQueue<Integer>();
-		queue.enqueue(10);
-		queue.enqueue(20);
-		queue.enqueue(30);
-		
-		int item = queue.dequeue();
-		System.out.println(item);
-		System.out.println(Arrays.toString(queue.toArray()));
+	
+		MyTree tree = new MyTree();
+		tree.insert(7);
+		tree.insert(4);
+		tree.insert(9);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(8);
+		tree.insert(10);
+
+
+		System.out.println(tree.find(99));
+		// Tree (root)
+		// Node (value, leftChild, rightChild)
+		// insert(value)
+		// find(value):boolean
 
 		
 	}
