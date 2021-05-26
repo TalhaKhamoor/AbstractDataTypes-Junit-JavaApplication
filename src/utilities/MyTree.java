@@ -1,5 +1,7 @@
 package utilities;
 
+import java.util.ArrayList;
+
 public class MyTree {
 
 	private class Node{
@@ -191,21 +193,31 @@ public class MyTree {
 			&& isBinarySearchTree(root.rightChild, root.value +1, max);
 	}
 
-	public void printNodesAtDistance(int distance) {
-		printNodesAtDistance(root, distance);
+	public ArrayList<Integer> getNodesAtDistance(int distance) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		getNodesAtDistance(root, distance, list);
+		return list;
 	}
 
-	private void printNodesAtDistance(Node root, int distance) {
+	private void getNodesAtDistance(Node root, int distance, ArrayList<Integer> list) {
 		if (root == null)
 			return;
 		
 		if (distance == 0) {
-			System.out.println(root.value);
+			list.add(root.value);
 			return;
 		}
 		
-		printNodesAtDistance(root.leftChild, distance-1);
-		printNodesAtDistance(root.rightChild, distance-1);
+		getNodesAtDistance(root.leftChild, distance-1, list);
+		getNodesAtDistance(root.rightChild, distance-1, list);
 	}
+
+	public void traverseLevelOrder() {
+		for(int i = 0; i <= height(); i++) {
+			for(int value : getNodesAtDistance(i))
+				System.out.println(value);
+		}
+	}
+
 }
 
